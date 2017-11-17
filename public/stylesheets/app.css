@@ -1,0 +1,21 @@
+header {
+    background-color: blue;
+    color: yellow;
+}
+body {
+    background-color: red;
+    font-family: 'Rozha One', serif;
+}
+main {
+    background-color: white;
+    padding: 16px;
+}
+.post {
+    margin-bottom: 48px;
+}
+.post .user-info img {
+    border-radius: 50%;
+}
+div:hover {
+    color:orange;
+}`
