@@ -3,7 +3,7 @@ header {
     color: yellow;
 }
 body {
-    background-color: red;
+    background-color: #c6edfd;
     font-family: 'Rozha One', serif;
 }
 main {
@@ -18,4 +18,4 @@ main {
 }
 div:hover {
     color:orange;
-}`
+}
