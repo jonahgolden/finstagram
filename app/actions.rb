@@ -59,3 +59,29 @@ get '/logout' do
     session[:user_id] = nil
     redirect to('/')
 end
+
+get '/posts/new' do
+    @post = Post.new
+    erb(:"posts/new")
+end
+
+post '/posts' do
+    photo_url = params[:photo_url]
+    
+    # instantiate new Post
+    @post = Post.new({ photo_url: photo_url, user_id: current_user.id })
+    
+    # if @post validates, save
+    if @post.save
+        redirect(to('/'))
+    else
+    
+    # if it doesn't validate, print error messages
+        erb(:"posts/new")
+    end
+end
+
+get '/posts/:id' do                 # the ":id" is a wildcard, so the :id will capture whatever follows /posts/ into params[:id]
+    @post = Post.find(params[:id])  # find the post with the ID from the URL
+    erb(:"posts/show")              # render app/views/posts/show.erb
+end
