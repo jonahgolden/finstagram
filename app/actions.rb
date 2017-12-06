@@ -85,3 +85,33 @@ get '/posts/:id' do                 # the ":id" is a wildcard, so the :id will c
     @post = Post.find(params[:id])  # find the post with the ID from the URL
     erb(:"posts/show")              # render app/views/posts/show.erb
 end
+
+post '/comments' do
+    # point values from params to variables
+    text = params[:text]
+    post_id = params[:post_id]
+    
+    # instantiate a comment with those values and assign the comment to the 'current_user'
+    comment = Comment.new({ text: text, post_id: post_id, user_id: current_user.id})
+    
+    # save the comment
+    comment.save
+    
+    # redirect back to wherever we came from
+    redirect(back)
+end
+
+post "/likes" do
+   post_id = params[:post_id]
+   
+   like = Like.new({ post_id: post_id, user_id: current_user.id})
+   like.save
+   
+   redirect(back)
+end
+
+delete '/likes/:id' do
+    like = Like.find(params[:id])
+    like.destroy
+    redirect(back)
+end

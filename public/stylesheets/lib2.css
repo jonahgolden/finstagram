@@ -95,7 +95,7 @@ main {
   align-items: baseline;
 }
 
-.actions button.user-like {
+.actions .user-like {
   color: #FF2600;
   border-color: #FF2600;
 }
@@ -110,6 +110,10 @@ main {
   margin-right: 0;
   padding: 0;
   list-style-type: none;
+}
+
+.comments img {
+  width: 30px;
 }
 
 .form-group {
